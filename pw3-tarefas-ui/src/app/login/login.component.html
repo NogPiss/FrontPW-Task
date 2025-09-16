@@ -1,0 +1,27 @@
+<div class="fullscreen-div">
+  <form [formGroup]="formularioLogin" class="Container">
+    <div class="loginContent">
+      <p class="texto">Login</p>
+      <input type="text" formControlName="campoUsuario" placeholder="Nome de usuario ou Email">
+      @if (formularioLogin.get("campoUsuario")?.touched && formularioLogin.get("campoUsuario")?.invalid) {  
+        <div>
+          @if (formularioLogin.get("campoUsuario")?.errors?.['required']) {
+            <small>Campo obrigatorio</small>
+          }
+        </div>
+      }
+      <br>
+      <input type="password" formControlName="campoSenha" placeholder="Senha">
+      @if (formularioLogin.get("campoSenha")?.touched && formularioLogin.get("campoSenha")?.invalid) {
+        <div>
+          @if (formularioLogin.get("campoSenha")?.errors?.["required"]) {
+            <small>Campo obrigatorio</small>
+          }
+        </div>
+      }
+      <br>
+      <button (click)="Enviar()">Entrar</button>
+      <a routerLink="/cadastro">cadastrar</a>
+    </div>
+  </form>
+</div>
